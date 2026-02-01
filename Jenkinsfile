@@ -1,13 +1,12 @@
-// Jenkinsfile - Docker Application CI/CD Pipeline
-// This file uses the shared library for reusable pipeline logic
+@Library('jenkins-shared-library') _
 
-@Library('docker-shared-lib') _
-
-// Call the shared library function with configuration parameters
 dockerPipeline(
-    gitRepo: 'https://github.com/DeekshithaRaviI/sample-docker-app.git',
-    imageName: 'sample-docker-app',
+    gitUrl: 'https://github.com/DeekshithaRaviI/sample-docker-app.git',
+    imageName: 'deekshithalive/sample-docker-app',
     imageTag: 'v1.0',
-    containerPort: '3000',
-    dockerHubCreds: 'dockerhub-creds'
+    containerPort: '8080',
+    dockerHubCredentials: 'dockerhub-credentials',
+    branch: 'main',
+    dockerfilePath: 'Dockerfile',
+    appDirectory: '.'
 )
