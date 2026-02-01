@@ -4,19 +4,10 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install --production
+RUN npm install --omit=dev
 
 COPY . .
 
 EXPOSE 8080
 
 CMD ["npm", "start"]
-```
-
-**.dockerignore:**
-```
-node_modules
-npm-debug.log
-.git
-.gitignore
-README.md
